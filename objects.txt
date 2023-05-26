@@ -1,0 +1,114 @@
+OBJECTS
+    Objects are defined as an unordered collection of related data, of primitive or reference types, in the form of “key: value” pairs. 
+    Objects in JavaScript is a data type and form a building block for storing the data.
+
+REFERENCE DATA TYPE
+    Objects are more complex and each object may contain any combination of these primitive data-types as well as reference data-types.
+    An object is a reference data type. Variables that are assigned a reference value are given a reference or a pointer to that value. 
+    The reference or pointer points to the location in memory where the object is stored.
+
+SYNTAX
+    Objects are written as,
+         key : value pairs (key and value are separated by a colon). 
+    KEY
+         keys can be variables or functions and are called properties and methods.
+    VALUE
+         values can be anything.
+    An object can be created using curly brackets{ } with a list of properties.
+    
+
+INTERNAL REPRESENTATION
+    CREATING A JAVASCRIPT OBJECT
+        Ways to create new objects,
+    USING AN OBJECT LITERAL
+        Literals are simpler way to define objects. 
+        We define the property and values inside curly braces as,
+            const person = {
+                name:"Divya", 
+                address:"Gandhi Nagar", 
+                age:30, 
+                phoneno:9801234567
+                };
+
+    USING NEW KEYWORD
+        Create a new JavaScript object using new Object(), and add five properties,
+            const person = new Object();
+            person.name = "Divya";
+            person.address = "Gandhi Nagar";
+            person.age = 30;
+            person.phoneno = 9801234567;
+            person.displaydetails: function(){
+                console.log(`${person.name} age is ${person.age}`);
+            }
+
+    USING A CONSTRUCTOR
+        Constructor is a function with help of new keyword.
+        Constructor function allows to create multiple objects of same type as,
+        function Vehicle(name, type) {
+            this.name = name;
+            this.type = type;
+        }
+        let car1 = new Vehicle(’Zen’, 'Petrol’);
+        let car2 = new Vehicle(’i10’, 'Diesel’)
+        console.log(car1.name);    
+        console.log(car2.name);   
+
+    USING Object.create METHOD
+        Objects can also be created using the Object.create method.
+        This method allows to choose the prototype object for the object you want to create, without having to define a constructor function.
+        
+        const animal = {
+            type: 'Invertebrates', 
+            displayType: function() {  
+                console.log(this.type);
+            }
+        };
+
+        const animal1 = Object.create(animal);
+        animal1.displayType();
+
+        const animal2 = Object.create(animal);
+        animal2.type = 'Fishes';
+        animal2.displayType(); 
+
+    ACCESSING OBJECT MEMBERS
+        Object members(properties or methods) can be accessed using the,
+    DOT NOTATION
+        objectName.memberName
+
+         const person = {
+                name:"Divya", 
+                address:"Gandhi Nagar", 
+                age:30, 
+                phoneno:9801234567
+                };
+        console.log(person.name);
+    
+    BRACKET NOTATION
+        objectName["memberName"]
+
+        const person = {
+                name:"Divya", 
+                address:"Gandhi Nagar", 
+                age:30, 
+                20: "21PCAT",
+                phoneno:9801234567
+                };
+        console.log(person['name']);
+        console.log(person['20']);
+
+    NESTED OBJECTS
+        Nested objects are utilized to store the properties of an object in another object.
+        These nested objects are useful for storing the different properties and specifying the value based on user needs.
+        const person = {
+                name:"Divya", 
+                address:"Gandhi Nagar", 
+                age:30,
+                marks:{
+                    mark1:90,
+                    mark2:89,
+                    mark3:85
+                } 
+                phoneno:9801234567
+                };
+        console.log(person.marks.mark2);
