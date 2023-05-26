@@ -1,0 +1,64 @@
+HTTP
+	HyperText Transfer Protocol (HTTP) is a protocol used to access the data on the web.
+	HTTP is used in client-server communication and allows the user to send the request to the server and the server response to the request by sending the resources.
+	HTTP is an application layer protocol used to transfer data in the form of text, audio, video between the networked devices.
+
+Difference between HTTP/1.1 vs HTTP/2
+	HTTP/1.1
+		The first version of http is http/1.1 which was created in 1997.
+		HTTP/1.1 transfer all the requests and responses in the plain text message form.
+
+	WORKING
+		HTTP/1.1 exchanges information between a client computer and a local or remote web server. 
+		In this process, a client sends a text-based request to a server by calling a method like GET or POST. 
+		In response, the server sends a resource like an HTML page back to the client.
+		
+	EXAMPLE 
+		When we are visiting a website https://www.guvi.in/. It navigate to this URL, the web browser sends an HTTP request in the form of a text-based message.
+			
+			GET /index.html HTTP/1.1
+			Host: https://www.guvi.in/
+		
+		This request uses the GET method, the guvi.in web server returns an HTML page to the requesting client with images, stylesheets and other resources called for in the HTML. 
+		Not all of the resources are returned to the client in the first call for data. 
+		The requests and responses will go back and forth between the server and client until the web browser has received all the resources necessary to render the contents of the HTML page on the screen.
+	
+	HEAD-OF-LINE BLOCKING
+		Multiple data packets cannot pass each other when traveling to the same destination, then the request at the head of the queue cannot retrieve its required resource will block all the requests behind it. 
+		It causes the Head-Of-Line (HOL) blocking.
+
+	HEADER COMPRESSION
+		The header component of a message is always sent as plain text. 
+		Each header is quite small, the burden of this uncompressed data weighs heavier on the connection as more requests are made, API-heavy web applications that require many different resources and thus many different resource requests.
+
+
+
+	HTTP/2
+		The new version of http is http/2 which was created in 2015.
+		HTTP/2 transfer all the requests and responses in the binary format.
+
+	WORKING
+		HTTP/2 exchanges information through a single TCP connection and send multiple streams of data at once so that no one resource blocks any other resource. 
+		HTTP/2 does this by splitting data into binary-code messages and numbering these messages so that the client knows which stream each binary message belongs to.
+
+	MULTIPLEXING	
+		The interleaved requests and responses can run in parallel without blocking the messages behind them, a process called multiplexing. 
+		Multiplexing resolves the head-of-line blocking issue in HTTP/1.1 by ensuring that no message has to wait for another to finish.
+
+	EXAMPLE PRIORITIZATION
+		A person needs to send his friend a novel written by him through HTTP/2,
+	    He sends each chapter of the novel separately but all at the same time. 
+		He also numbers each chapter: Chapter 1, Chapter 2, etc. 
+		Now, his friend receives the novel all at once and can assemble it in the correct order on his own time. 
+		If a chapter is missing, he may send a quick reply asking for that specific chapter, but otherwise the process is complete, and he can read the novel in just a few days.
+		In HTTP/2, data is sent all at once, developers get to number the chapters in HTTP/2. 
+		They can decide if the text of a webpage loads first, or the CSS files, or the JavaScript, or whatever they feel is most important for the user experience.
+
+	SERVER PUSH
+		 HTTP/2 allows a server to "push" content to a client before the client asks for it. 
+		 The server also sends a message letting the client know what pushed content to expect – When a person had sent his friend a Table of Contents of his novel before sending the whole thing.
+
+	HEADER COMPRESSION
+		HTTP/2 uses a compression method called HPACK that eliminates redundant information in HTTP header packets. 
+		This eliminates a few bytes from every HTTP packet. 
+		Given the volume of HTTP packets involved in loading even a single webpage, those bytes add up quickly, resulting in faster loading.
